@@ -73,7 +73,7 @@ def save_csv(outfile, tvseries):
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
     for serie in tvseries:
-        writer.writerow(serie)
+        writer.writerow(tvseries)
 
 
 def simple_get(url):
