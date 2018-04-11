@@ -27,12 +27,42 @@ def extract_tvseries(dom):
     - Runtime (only a number!)
     """
 
-    # ADD YOUR CODE HERE TO EXTRACT THE ABOVE INFORMATION ABOUT THE
-    # HIGHEST RATED TV-SERIES
-    # NOTE: FOR THIS EXERCISE YOU ARE ALLOWED (BUT NOT REQUIRED) TO IGNORE
-    # UNICODE CHARACTERS AND SIMPLY LEAVE THEM OUT OF THE OUTPUT.
+    # Lists to store the scraped data in
+    titles = []
+    ratings = []
+    genres = []
+    actorss = []
+    runtimes = []
+    series = []
+    tvseries = []
+    
+    series = dom.find_all('div', class_ = 'lister-item mode-advanced')
 
-    return []   # REPLACE THIS LINE AS WELL AS APPROPRIATE
+    for serie in series:
+        title = serie.h3.a.text
+        #titles.append(title)
+        tvseries.append(title)
+
+        rating = float(serie.strong.text)
+        #ratings.append(rating)
+        tvseries.append(rating)
+
+        genre = serie.find('span', class_ = 'genre').text
+        #genres.append(genre)
+        tvseries.append(genre)
+
+        series_actors = []
+        actors = serie.select("p > a")
+        for actor in actors:
+            series_actors.append(actor.find(text = True))
+        actorss = ', '.join(series_actors)
+        tvseries.append(actorss)
+
+        runtime = serie.find('span', class_ = 'runtime').text
+        #runtimes.append(runtime)
+        tvseries.append(runtime)
+
+    return tvseries
 
 
 def save_csv(outfile, tvseries):
@@ -42,7 +72,8 @@ def save_csv(outfile, tvseries):
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
-    # ADD SOME CODE OF YOURSELF HERE TO WRITE THE TV-SERIES TO DISK
+    for serie in tvseries:
+        writer.writerow(serie)
 
 
 def simple_get(url):
