@@ -27,40 +27,62 @@ def extract_tvseries(dom):
     - Runtime (only a number!)
     """
 
-    # Lists to store the scraped data in
-    actorss = []
-    series = []
+    # main list to store data
     all_tvseries = []
 
+    # look into the right div for the data
     series = dom.find_all('div', class_ = 'lister-item mode-advanced')
 
+    # look up data for each tv show
     for show in series:
+
+        # list for each tv show to store data
         tvseries = []
 
         title = show.h3.a.text
-        tvseries.append(title)
+        if title == None:
+            tvseries.append('no title')
+        else:
+            tvseries.append(title)
 
         rating = float(show.strong.text)
-        tvseries.append(rating)
+        if rating == None:
+            tvseries.append('no rating')
+        else:
+            tvseries.append(rating)
 
         genre = show.find('span', class_ = 'genre').text.strip()
-        tvseries.append(genre)
+        if genre == None:
+            tvseries.append('no genre')
+        else:
+            tvseries.append(genre)
 
+        # list for the individual actors
         series_actors = []
         actors = show.select("p > a")
-        for actor in actors:
-            series_actors.append(actor.find(text = True))
-        actorss = ', '.join(series_actors)
-        tvseries.append(actorss)
+        if actors == None:
+            tvseries.append('no actors')
+        else:
+            # find each individual actor
+            for actor in actors:
+                series_actors.append(actor.find(text = True))
 
+            # add all actors together
+            actorss = ', '.join(series_actors)
+            tvseries.append(actorss)
+
+        # get number only by using strip
         runtime = show.find('span', class_ = 'runtime').text.strip('min')
-        tvseries.append(runtime)
+        if runtime == None:
+            tvseries.append('no runtime')
+        else:
+            tvseries.append(runtime)
 
+        # put list of data of each tv show in main list
         all_tvseries.append(tvseries)
 
     return all_tvseries
 
-        # if none .. else ..
 
 def save_csv(outfile, tvseries):
     """
@@ -69,6 +91,7 @@ def save_csv(outfile, tvseries):
     writer = csv.writer(outfile)
     writer.writerow(['Title', 'Rating', 'Genre', 'Actors', 'Runtime'])
 
+    # write row for each series
     for series in tvseries:
         writer.writerow(series)
 
