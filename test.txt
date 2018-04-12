@@ -1,14 +1,17 @@
 hoi
 
 
-git status
 
 git add --all
 
-git commit -m "first commit"
+git commit -m " .... "
 
 git remote add origin https://github.com/pernilledeijlen/DataProcessing.git
 
 git push -u origin master
 
 git status
+
+git log
+
+git clone (pagina github)
