@@ -6,9 +6,6 @@
 		<title>Average Temperature</title>
 	</head>
 	<body>
-		<header>
-			Average temperature in 2017
-		</header>
 		<textarea id="rawdata">
 #date,maxtemp
 20170101,5
@@ -377,32 +374,7 @@
 20171230,88
 20171231,106
 		</textarea>
-
-		<script type="text/javascript">
-			// eventueel src=dan de filenaam voor externe javascript file
-			let data = document.getElementById("rawdata").outerHTML;
-
-			// split into lines so you get back an array
-			let enter = "\n";
-			let lines = data.split(enter);
-			
-			let comma = ",";
-			let array = []
-			for (let i = 1; i < 366; i++)
-			{
-				// split into date and temp
-				//split = lines[i].split(comma);
-				//console.log(split);
-				array.push(lines[i].split(comma));
-			}
-	
-
-			// create array of data points
-			console.log(array)
-
-			// max waarden vinden, let op, de temps zijn in strings en niet in numbers!
-			// basis python, datastructuren, javascript, d3, git
-
-		</script>
+		<canvas id="graph" width="800" height="800"></canvas>
+		<script src="temp.js"></script>
 	</body>
 </html>
