@@ -1,5 +1,9 @@
-// eventueel src=dan de filenaam voor externe javascript file
-			
+/*
+* Pernille Deijlen
+* 10747354
+* Line graph with Javascript
+*/	
+
 // split into lines so you get back an array
 let enter = "\n";
 let data = document.getElementById("rawdata").outerHTML.split(enter);
@@ -35,31 +39,29 @@ for (let i = 0; i < 365; i++)
 	let DD = dates[i].slice(6);
 	dates[i] = new Date(YYYY + "-" + MM + "-" + DD).toISOString().
 	split('T')[0];
-	//dates[i] = new Date(YYYY + "-" + MM + "-" + DD);
 }
 
 // printing the arrays
 console.log(dates)
 console.log(temps)
 
+// create canvas for graph
 var canvas = document.getElementById("graph");
 var ctx = canvas.getContext("2d");
-//ctx.fillStyle = "pink";
-//ctx.fillRect(0,0,300,300);
 
-// the vertical axes (temperatures range from -38 to 236, total: 274, transform x 1.5, range 411, neg: -57, pos: 354)
+// y axes, total range temperature 274, transform * 1.5 so a range of 411
 ctx.beginPath();
 ctx.moveTo(50, 146);
 ctx.lineTo(50, 557);
 ctx.stroke();
 
-// horizontal axes (dates range from 0 to 364, total: 365, transform x 1.5, range 547.5)
+// x axes, totale range dates 365, transform * 1.5 so a range of 547.5
 ctx.beginPath();
 ctx.moveTo(50, 500);
 ctx.lineTo(597.5, 500);
 ctx.stroke();
 
-// horizontal lines to make it pretty (for 5 degrees celsius, ff kijken of het blurry kan of de echte graph dikker of een kleur)
+// extra horizontal lines and text for the y axis
 for (let i = 1; i < 5; i++)
 {
 	ctx.beginPath();
@@ -69,12 +71,13 @@ for (let i = 1; i < 5; i++)
 	ctx.fillText(eval("i * 5"), 30, 500 - i * 50 * 1.5);
 }
 
+// text for the x axis
 for (let i = 1; i < 8; i ++)
 {
 	ctx.fillText(eval("i * 50"), 50 + i * 50 * 1.5, 520);
 }
 
-// making graph with temperatures and dates (0 to 364)
+// making graph with temperatures and dates
 ctx.beginPath();
 // making first datapoint
 let y = 0
@@ -93,7 +96,7 @@ for (let i = 1; i < 365; i++)
 ctx.strokeStyle = "purple";
 ctx.stroke();
 
-// info
+// graph info
 ctx.font = "14px Times New Roman"
 ctx.fillText("Name:", 550, 20);
 ctx.fillText("Pernille Deijlen", 640, 20);
@@ -102,34 +105,9 @@ ctx.fillText("Line graph with Javascript", 640, 35);
 ctx.fillText("Data source:", 550, 50);
 ctx.fillText("projects.knmi.nl", 640, 50);
 
-// graph and axes titles
+// graph and axis titles
 ctx.font = "20px Times New Roman";
 ctx.fillText("Average temperature in the Bilt 2017", 180, 50);
 ctx.fillText("Time (in days)", 250, 550);
 ctx.rotate(-90*Math.PI/180);
 ctx.fillText("Temperature (in degrees Celsius)", -460, 20);
-
-// function createTransform(domain, range)
-// {
-// 	// domain is a two-element array of the data bounds [domain_min, domain_max]
-// 	// range is a two-element array of the screen bounds [range_min, range_max]
-// 	// this gives you two equations to solve:
-// 	// range_min = alpha * domain_min + beta
-// 	// range_max = alpha * domain_max + beta
-//  		// a solution would be:
-
-//     var domain_min = domain[0]
-//     var domain_max = domain[1]
-//     var range_min = range[0]
-//     var range_max = range[1]
-
-//     // formulas to calculate the alpha and the beta
-//    	var alpha = (range_max - range_min) / (domain_max - domain_min)
-//     var beta = range_max - alpha * domain_max
-
-//     // returns the function for the linear transformation (y= a * x + b)
-//     return function(x)
-//     {
-//       return alpha * x + beta;
-//     }
-// }
