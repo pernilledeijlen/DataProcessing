@@ -100,7 +100,7 @@ ctx.fillText("Pernille Deijlen", 640, 20);
 ctx.fillText("Assignment:", 550, 35);
 ctx.fillText("Line graph with Javascript", 640, 35);
 ctx.fillText("Data source:", 550, 50);
-ctx.fillText("link to source", 640, 50);
+ctx.fillText("projects.knmi.nl", 640, 50);
 
 // graph and axes titles
 ctx.font = "20px Times New Roman";
