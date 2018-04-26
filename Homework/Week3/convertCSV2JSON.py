@@ -7,6 +7,8 @@ Current account balance (BoP in US dollars) in the Netherlands, years 1990 - 201
 data source: World Development Indicators
 """
 
+#meer jaren toevoegen!! iets van 10-15
+
 import csv
 import json
 
@@ -17,7 +19,7 @@ json_file = open(json_filename, "w")
 
 reader = csv.DictReader(csv_file, fieldnames = ("year", "BoP"))
 data = json.dumps([row for row in reader])
-json_file.write("{ \"data\": " + data + "}")
+json_file.write(data)
 
 csv_file.close()
 json_file.close()
