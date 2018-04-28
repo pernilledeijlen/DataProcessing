@@ -12,7 +12,7 @@ d3.select("head").append("title").text("Barchart");
 body.append("p").text("Pernille Deijlen");
 body.append("p").text("10747354");
 body.append("h1").text("Balance of Payments");
-body.append("p").text("This dataset contains data on the Balance of Payments (BoP) of the Netherlands from 2000 until 2016.\
+body.append("p").text("This dataset contains data from the World Bank on the Balance of Payments (BoP) of the Netherlands from 2000 until 2016.\
   The BoP of a country is the record of all economic transactions between the country itself and the rest of the world.\
   The barchart below shows the BoP (measured in US dollars) for the mentioned years.");
 
@@ -69,6 +69,7 @@ d3.json("dutchBoP.json", function(error, data)
                 .attr("x", function(d, i) {return i * (width / data.length)})
                 .attr("y", function(d, i) {return height - (d.BoP / 300000000)});
         })
+    
     // svg.selectAll("text")
     //     .data(data)
     //     .enter()
