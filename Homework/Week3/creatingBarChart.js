@@ -50,35 +50,6 @@ d3.json("dutchBoP.json", function(error, data)
             .attr("x", function(d, i) {return i * (width / data.length)})
             .attr("y", function(d) {return height - (d.BoP / 300000000)});
 
-    // show information when hovering over bar
-    var myTool = body.append("div")
-        .attr("class", "mytooltip")
-        .style("opacity", "0")
-        .style("display", "none");
-
-    body.selectAll("div")
-        .data(data)
-        .enter()
-        .append("div")
-        .on("mouseover", function(d) {
-            d3.select(this)
-                .enter()
-                .append("text")
-                .text(function(d) {return d.BoP})
-                .attr("class", "text")
-                .attr("x", function(d, i) {return i * (width / data.length)})
-                .attr("y", function(d, i) {return height - (d.BoP / 300000000)});
-        })
-    
-    // svg.selectAll("text")
-    //     .data(data)
-    //     .enter()
-    //     .append("text")
-    //     .text(function(d) {return d.BoP})
-    //         .attr("class", "text")
-    //         .attr("x", function(d, i) {return i * (width / data.length)})
-    //         .attr("y", function(d, i) {return height - (d.BoP / 300000000)});
-
     // scaling the y and x axis
     var y = d3.scaleLinear()
         .domain([0, d3.max(data, function(d) {return d.BoP; })])
