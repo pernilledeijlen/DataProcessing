@@ -39,7 +39,6 @@ function scatter(error, response) {
 	{
 		europe = jsonFemale["structure"]["dimensions"]["observation"]["0"]["values"][country]["name"]
 		countries.push(europe)
-
 	}
 
 	// store years
@@ -156,7 +155,7 @@ function scatter(error, response) {
     	.attr("x", margin.top)
     	.attr("y", width - margin.right)
     	.style("text-anchor", "end")
-    	.text("difference between male and female average income")
+    	.text("difference between male and female average income");
 
     // draw legend
     // var legend = svg.selectAll("legend")
