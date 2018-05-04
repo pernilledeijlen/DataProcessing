@@ -5,17 +5,6 @@
 * credits to blocks.org for helping with the code
 */  
 
-// all code should be enclosed by functions
-// to run all functions do:
-
-window.onload = function()
-{
-  console.log('Hoi!')
-};
-
-
-// user should be able to switch between datasets, like years, countries oid.
-// meerdere jaren meerdere landen, 1 jaar meerdere landen (optie is dan van jaar veranderen)
 // share of employed who are employers (women) vs
 // difference male and female av income, man - women / man * 100 DUS hoe meer vrouwen verdienen, hoe lager de uitkomst, wanneer man en vrouw evenveel verdienen is de uitkomst 0
 // countries: austria, belgium, cheg, finland, france, greece, hungary, ireland, italy, lux, nederlands, norway, poland, portugal, slove?, spain, sweden, che? swiss, great britain
@@ -43,9 +32,6 @@ function scatter(error, response) {
 	var jsonFemale = JSON.parse(response[0].responseText) 
 	var jsonIncome = JSON.parse(response[1].responseText)
 
-	console.log(jsonFemale)
-	console.log(jsonIncome)
-
 	// store countries
 	var countries = []
 
@@ -57,8 +43,6 @@ function scatter(error, response) {
 
 	}
 
-	console.log(countries)
-
 	// store years
 	var years = []
 
@@ -69,9 +53,7 @@ function scatter(error, response) {
 		years.push(time)
 	}
 
-	console.log(years)
-
-	// store share of employed who are female employers
+	// get share of employed who are female employers
 	var employers = []
 
 	for (year = 0; year < numberYears; year++)
@@ -85,9 +67,7 @@ function scatter(error, response) {
 		employers.push(employersFemale)
 	}
 
-	console.log(employers)
-
-	// store difference in income between males and females
+	// get difference in income between males and females
 	var income = []
 
 	for (year = 0; year < numberYears; year++)
@@ -101,8 +81,6 @@ function scatter(error, response) {
 		income.push(incomeCountry)
 	}
 
-	console.log(income)
-
 	// create x and y values for scatterplot
 	var dataset = []
 	for (year = 0; year < numberYears; year++)
@@ -114,7 +92,6 @@ function scatter(error, response) {
 		}
 		dataset.push(data)
 	}
-	console.log(dataset)
 
 	// setting the size of the canvas
 	var margin = {top: 20, right: 20, bottom: 40, left: 70}
@@ -133,6 +110,7 @@ function scatter(error, response) {
 	var g = svg.append("g")
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+	// get colors for dots
 	var color = d3.scaleOrdinal(d3.schemePastel1);
 
 	// scaling the x-axis
@@ -150,6 +128,7 @@ function scatter(error, response) {
         .data(dataset[0])
         .enter()
         .append("dots")
+        	.attr("class", "dots")
             .attr("cx", function(d) {return xScale(d[0]);})
             .attr("cy", function(d) {return yScale(d[1]);})
             .attr("r", 5)
@@ -177,8 +156,6 @@ function scatter(error, response) {
    	g.append("text")
    		.attr("class", "label")
    		.attr("transform", "rotate(-90)")
-        // .attr('dx', '-.9em')
-        // .attr('dy', '.4em')
     	.attr("x", margin.top)
     	.attr("y", width - margin.right)
     	.style("text-anchor", "end")

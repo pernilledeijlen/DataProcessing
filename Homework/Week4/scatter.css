@@ -4,22 +4,12 @@ style for scatter plot*/
 
 body
 {
-  font-family: Verdana;
-  color: #FF00FF;
+  font: "Times New Roman";
 }
 
-.text
+.label
 {
-    fill: pink;
-    font-family: "Times New Roman";
-    font-size: 10px;
-}
-
-.axis text
-{
-	fill: pink;
-    font-size: 10px;
-    font-family: "Times New Roman";
+    font: "Times New Roman";
 }
 
 .axis path,
