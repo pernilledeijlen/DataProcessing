@@ -10,8 +10,8 @@ window.onload = function() {
   console.log('Yes, you can!')
 };
 
-var femaleEmployers = "http://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT1.WOMEN.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
-var incomeGap = "http://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT7.ALL.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
+var femaleEmployers = "https://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT1.WOMEN.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
+var incomeGap = "https://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT7.ALL.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
 
 d3.queue()
   .defer(d3.request, femaleEmployers)
