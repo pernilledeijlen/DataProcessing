@@ -2,13 +2,13 @@
 * Pernille Deijlen
 * 10747354
 * Scatter plot with Javascript using d3 version 4
-* credits to blocks.org for helping with the code
-*/  
+* credits to bl.ocks.org for helping with the code
+*/
 
-// share of employed who are employers (women) vs
-// difference male and female av income, man - women / man * 100 DUS hoe meer vrouwen verdienen, hoe lager de uitkomst, wanneer man en vrouw evenveel verdienen is de uitkomst 0
-// countries: austria, belgium, cheg, finland, france, greece, hungary, ireland, italy, lux, nederlands, norway, poland, portugal, slove?, spain, sweden, che? swiss, great britain
-// years: 2004 tm 2014, countries: 14, years: 11
+window.onload = function() {
+
+  console.log('Yes, you can!')
+};
 
 var femaleEmployers = "http://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT1.WOMEN.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
 var incomeGap = "http://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT7.ALL.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
@@ -17,7 +17,6 @@ d3.queue()
   .defer(d3.request, femaleEmployers)
   .defer(d3.request, incomeGap)
   .awaitAll(scatter);
-
 
 function scatter(error, response) {
  	if (error) throw error;
@@ -59,7 +58,6 @@ function scatter(error, response) {
 	for (year = 0; year < numberYears; year++)
 	{
 		var employersFemale = []
-
 		for (country = 0; country < numberCountries; country++)
 		{
 			employersFemale.push(jsonFemale["dataSets"]["0"]["observations"][country + ":0:0:0:" + year][0])
@@ -73,7 +71,6 @@ function scatter(error, response) {
 	for (year = 0; year < numberYears; year++)
 	{
 		var incomeCountry = []
-
 		for (country = 0; country < numberCountries; country++)
 		{
 			incomeCountry.push(jsonIncome["dataSets"]["0"]["observations"][country + ":0:0:0:" + year][0]) 
@@ -166,18 +163,4 @@ function scatter(error, response) {
     // 	.data(color.domain())
     // 	.enter()
     // 	.append("")
-
-
-	
-
-
-
-
-
-
-
-
-	
-
-	
 };
