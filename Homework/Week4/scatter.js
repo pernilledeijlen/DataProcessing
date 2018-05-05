@@ -137,7 +137,7 @@ function scatter(error, response) {
         .call(d3.axisBottom(xScale))
     
     g.append("text")
-    	.attr("class", "label")
+    	.attr("class", "text")
     	.attr("x", width - margin.left)
     	.attr("y", height + margin.top)
     	.style("text-anchor", "end")
@@ -150,7 +150,7 @@ function scatter(error, response) {
         .call(d3.axisRight(yScale));
 
    	g.append("text")
-   		.attr("class", "label")
+   		.attr("class", "text")
    		.attr("transform", "rotate(-90)")
     	.attr("x", margin.top)
     	.attr("y", width - margin.right)
