@@ -5,9 +5,6 @@
 * credits to bl.ocks.org and oreilly.com for helping with the code
 */
 
-
-// andere colorsceme kiezen
-
 window.onload = function() {
 
 };
