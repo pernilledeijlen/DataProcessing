@@ -2,12 +2,14 @@
 * Pernille Deijlen
 * 10747354
 * Scatter plot with Javascript using d3 version 4
-* credits to bl.ocks.org for helping with the code
+* credits to bl.ocks.org and oreilly.com for helping with the code
 */
+
+
+// andere colorsceme kiezen
 
 window.onload = function() {
 
-  console.log('Yes, you can!')
 };
 
 var femaleEmployers = "https://stats.oecd.org/SDMX-JSON/data/GENDER_ENT1/AUT+BEL+CZE+FIN+FRA+HUN+IRL+LUX+NLD+NOR+POL+SVN+SWE+GBR.ENT1.WOMEN.TOTAL/all?startTime=2004&endTime=2014&dimensionAtObservation=allDimensions"
@@ -20,8 +22,6 @@ d3.queue()
 
 function scatter(error, response) {
  	if (error) throw error;
-
-	console.log(response);
 
 	// number of countries and years in dataset
 	var numberCountries = 14
@@ -90,8 +90,8 @@ function scatter(error, response) {
 	}
 
 	// setting the size of the canvas
-	var margin = {top: 20, right: 20, bottom: 40, left: 70}
-	var totalWidth = 600
+	var margin = {top: 20, right: 20, bottom: 40, left: 200}
+	var totalWidth = 800
 	var totalHeight = 400
 	var width = totalWidth - margin.left - margin.right
 	var height = totalHeight - margin.top - margin.bottom
@@ -107,12 +107,12 @@ function scatter(error, response) {
 	    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 	// get colors for dots
-	var color = d3.scaleOrdinal(d3.schemePastel1);
+	var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 	// scaling the x-axis
 	var xScale = d3.scaleLinear()
 		.domain([0, d3.max(dataset[0], function(d) {return d[0];})])
-		.range([0, width]);
+		.range([margin.right, width - margin.left]);
 
 	// scaling the y-axis
 	var yScale = d3.scaleLinear()
@@ -124,21 +124,21 @@ function scatter(error, response) {
         .data(dataset[0])
         .enter()
         .append("dots")
-        	.attr("class", "dots")
             .attr("cx", function(d) {return xScale(d[0]);})
             .attr("cy", function(d) {return yScale(d[1]);})
             .attr("r", 5)
         	.style("fill", function(d) {return color(d);});
+        	
 
     // creating the x axis
     g.append("g")
         .attr("class", "axis")
         .attr("transform", "translate(" + (-margin.left) + "," + (height - margin.right) + ")") 
-        .call(d3.axisBottom(xScale))
+        .call(d3.axisBottom(xScale));
     
     g.append("text")
     	.attr("class", "text")
-    	.attr("x", width - margin.left)
+    	.attr("x", margin.left)
     	.attr("y", height + margin.top)
     	.style("text-anchor", "end")
     	.text("share of employed who are female employers");
@@ -146,20 +146,37 @@ function scatter(error, response) {
     // creating the y axis
 	g.append("g")
         .attr("class", "axis")
-        .attr("transform", "translate(" + (width - margin.left) + (-margin.right) + ")")
+        .attr("transform", "translate(" + (width - margin.left - margin.left) + (-margin.right) + ")")
         .call(d3.axisRight(yScale));
 
    	g.append("text")
    		.attr("class", "text")
    		.attr("transform", "rotate(-90)")
     	.attr("x", margin.top)
-    	.attr("y", width - margin.right)
+    	.attr("y", width - margin.left - 160)
     	.style("text-anchor", "end")
     	.text("difference between male and female average income");
 
-    // draw legend
-    // var legend = svg.selectAll("legend")
-    // 	.data(color.domain())
-    // 	.enter()
-    // 	.append("")
+    // create legend
+    var legend = svg.selectAll("legend")
+    	.data(countries)
+    	.enter()
+    	.append("g")
+    	.attr("class", "legend")
+    	.attr("transform", function(d, i) {return "translate(0," + i * 20 + ")";});
+
+   	// create squares for colors
+    legend.append("rect")
+    	.attr("x", 0)
+    	// .attr("y", 0)
+    	.attr("width", 12)
+    	.attr("heigt", 12)
+    	.style("fill", color);
+
+    // create text for legend
+    legend.append("text")
+    	.attr("x", width - margin.right - 20)
+    	.attr("y", 9)
+    	.attr("dy", ".65em")
+    	.text(function(d) {return d;});
 };
