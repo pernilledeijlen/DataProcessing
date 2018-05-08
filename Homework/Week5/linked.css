@@ -1,0 +1,36 @@
+/*Pernille Deijlen
+10747354
+style for linked views*/
+
+/*body
+{
+  font: "Times New Roman";
+}
+
+.text
+{
+    font: "Times New Roman";
+}
+
+.axis path,
+.axis line
+{
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}*/
+
+path {
+  stroke: white;
+  stroke-width: 0.3px;
+  fill: grey;
+}
+
+path:hover {
+	fill: pink;
+}
+
+.infobox {
+	stroke: grey;
+	fill: none;
+}
