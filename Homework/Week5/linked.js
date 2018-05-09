@@ -6,56 +6,77 @@
 * ....
 */
 
+// setting width and height
+var width = 800
+var height = 800
+
+var color = d3.scaleThreshold()
+		.domain([2500000, 4400000, 5200000, 23000000, 42000000])
+		.range(["#f2f0f7", "#dadaeb", "#bcbddc", "#9e9ac8", "#756bb1", "#54278f"]);
+
+var projection = d3.geo.mercator()
+    .center([4, 68.6])
+    .scale(700)
+    .translate([width / 2, 0])
+
+// creating svg
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var path = d3.geo.path().projection(projection);
+
 // loading datasets
 queue()
 	.defer(d3.json, "labourForce.json")
+	.defer(d3.json, "Europe.topojson")
 	// .defer(d3.json, more info on labour , json")
 	.await(makeVisualisation);
 
-function makeVisualisation(error, labourForce)
+function makeVisualisation(error, labourForce, europe)
 {
 	if (error) throw error;
 
-	console.log(labourForce);
+	// console.log(labourForce);
 	
-	var labour = []
-	var countries = []
-	for (i = 0; i < 25; i++)
-	{
-		countries.push(labourForce[i].country)
-		labour.push(labourForce[i].labourforce)
-	}
-	console.log(countries)
-	console.log(labour)
+	// var labour = []
+	// var countries = []
+	// for (i = 0; i < 25; i++)
+	// {
+	// 	countries.push(labourForce[i].country)
+	// 	labour.push(labourForce[i].labourforce)
+	// }
+	// console.log(countries)
+	// console.log(labour)
 
-	// make a map of europe with data from labourForce.json = data1
-	// setting width and height
-	var width = 800
-	var height = 800
+	var labourById = {};
+	labourForce.forEach(function(d) {
+		labourById[d.country] = +d.labourforce;
+	});
 
-	var projection = d3.geo.mercator()
-	    .center([4, 68.6])
-	    .scale(700)
-	    .translate([width / 2, 0])
+	console.log(labourById)
 
-	// creating svg
-	var svg = d3.select("body").append("svg")
-	    .attr("width", width)
-	    .attr("height", height);
-
-	var path = d3.geo.path().projection(projection);
 	var g = svg.append("g");
 
-	// getting countries from topojson file
-	d3.json("Europe.topojson", function(europe) {
-		g.selectAll("path")
-		.data(topojson.feature(europe, europe.objects.collection).features)
-		.enter()
-		.append("path")
-		.attr("d", path)
-		.on("mouseover", showInfo)
-		// .on("click", barChart)
-	});
+	// creating map with topojson file
+	g.selectAll("path")
+	.data(topojson.feature(europe, europe.objects.collection).features)
+	.enter()
+	.append("path")
+	.attr("d", path)
+	.style("fill", function(d){ return color(labourById[d.country]);})
+	.style("stroke", "white")
+	.on("mouseover", showInfo);
+	// .on("click", barChart)
+
+
+
+
+
+
+
+
+
 
 	svg.append("rect")
 		.attr("class", "infobox")
@@ -80,22 +101,19 @@ function makeVisualisation(error, labourForce)
 
 
 	function showInfo(d) {
-		for (i = 0; i < 25; i++)
-		{
 			svg.append("text")
 			    .attr("class", "text")
 		    	.attr("x", 5)
 		    	.attr("y", 390)
 		    	.style("text-anchor", "begin")
-		    	.text("countries[i]");
+		    	.text("hoi");
 
 		    svg.append("text")
 			    .attr("class", "text")
 		    	.attr("x", 5)
 		    	.attr("y", 430)
 		    	.style("text-anchor", "begin")
-		    	.text("labour[i]");
-	    }    	
+		    	.text("labour[i]");  	
 	}
 
 	// country clicked

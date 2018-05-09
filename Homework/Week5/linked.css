@@ -20,7 +20,7 @@ style for linked views*/
     shape-rendering: crispEdges;
 }*/
 
-path {
+/*path {
   stroke: white;
   stroke-width: 0.3px;
   fill: grey;
@@ -28,7 +28,7 @@ path {
 
 path:hover {
 	fill: pink;
-}
+}*/
 
 .infobox {
 	stroke: grey;
