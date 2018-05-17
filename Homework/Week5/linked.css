@@ -24,13 +24,8 @@ style for linked views*/
   stroke: white;
   stroke-width: 0.3px;
   fill: grey;
-}
-
-path:hover {
-	fill: pink;
 }*/
 
-.infobox {
-	stroke: grey;
-	fill: none;
+.hoverinfo {
+	fill: grey;
 }

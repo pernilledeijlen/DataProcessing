@@ -15,7 +15,7 @@ csv_file = open(csv_name, "r")
 json_filename = csv_name.split(".csv")[0] + ".json"
 json_file = open(json_filename, "w")
 
-reader = csv.DictReader(csv_file, fieldnames = ("country", "labourforce"))
+reader = csv.DictReader(csv_file, fieldnames = ("country", "labourforce", "iso"))
 data = json.dumps([row for row in reader])
 json_file.write(data)
 

@@ -1,18 +1,24 @@
+<!-- Pernille Deijlen
+10747354
+Linked Views -->
+
 <!DOCTYPE html>
 <html>
   <head>
   	<title> Linked Views</title>
-  	<link rel="stylesheet" type="text/css" href="linked.css">
-    <script src="http://d3js.org/d3.v3.min.js"></script>
-    <script src="http://d3js.org/topojson.v1.min.js"></script>
-    <script src="http://d3js.org/queue.v1.min.js"></script>
-    <script src="http://d3js.org/d3-scale.v2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="linked.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+    <script src="datamaps.world.min.js"></script>   
   </head>
+  
   <body>
   	<h3> Pernille Deijlen</h3>
   	<h3> 10747354</h3>
   	<h1> Europe and its labour force</h1>
-  	<p> Below a map of Europe. When you hover over a country you will see the labour force and when you click on a country it shows details about the labour force. Source: OECD</p>
-    <script src="linked.js"></script>
+  	<p> Below a map of Europe. The colors show the size of the labour force for each country, the darker the bigger. When you hover over the map you will see the exact amounts and when you click on a country it shows the labour force in more detail. Grey countries on the map unfortunately don't have any data available. Source: OECD.</p>
+    <div id="container" style="position: relative; width: 600px; height: 400px;"></div>
+    <script src="linked.js"></script>    
   </body>
 </html>
