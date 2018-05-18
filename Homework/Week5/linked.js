@@ -3,9 +3,9 @@
 * 10747354
 * Linked Views with Javascript using d3 version 3
 * credits to datamaps on github for help with creating the map
+* and credits to bl.ocks.org for helping with the barchart
 */
 
-// dataset link https://stats.oecd.org/Index.aspx?DataSetCode=BLI#
 window.onload = function() {
 };
 
@@ -40,6 +40,7 @@ function load(error, data) {
 
 	var infoCountry = [];
 	var begin = 1
+
 	// data arrays for each country for barchart
 	for (var i = 0; i < 25; i++) {
 		var country = [];
@@ -51,7 +52,8 @@ function load(error, data) {
 	}
 
 	map(labour, infoCountry);
-	// default barchart
+	
+	// default barchart Germany
 	barchart(infoCountry[4][0]["iso"], infoCountry);
 	console.log(infoCountry);
 };
@@ -100,7 +102,7 @@ function map(labour, infoCountry) {
 				var place = geo.id;
 				for (var i = 0; i < 25; i++) {
 					if (place == infoCountry[i][0]["iso"]) {
-						// remove();
+						remove();
 						barchart(place, infoCountry);
 					};
 				};
@@ -117,11 +119,14 @@ function barchart(place, infoCountry) {
 	var totalHeight = 400;
 	var width = totalWidth - margin.left - margin.right;
 	var height = totalHeight - margin.top - margin.bottom;
+	var barPadding = 2
 
+	var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 	var body = d3.select("body");
 
 	// creating svg
 	var svg = body.append("svg")
+		.attr("id", "chart")
 	    .attr("height", totalHeight)
 	    .attr("width", totalWidth);
 
@@ -134,9 +139,7 @@ function barchart(place, infoCountry) {
 			var data = infoCountry[i];
 		}
 	};
-	console.log(data)
- 
- 	// max value in excel 39871320
+ 	
 	// scaling the y-axis
 	var yScale = d3.scale.linear()
 		.domain([0, 40000000])
@@ -185,20 +188,39 @@ function barchart(place, infoCountry) {
 	    	.style("text-anchor", "end")
 	    	.text("info on the labour force");
 
+	// creating hover tooltip
+	var hover = d3.tip()
+	.attr("class", "d3-tip")
+	.offset([-10, 0])
+	.html(function(d) { return "<strong>" + (d.subject) + ": " + "</strong> <span style='color:black'>" + (d.value) + "</span>";});
+
+	svg.call(hover)
 	// creating bars
 	svg.selectAll("rect")
 	    .data(data)
 	    .enter()
 	    .append("rect")
+	    	.attr("transform", "translate(" + (height - margin.left + 40) + ")")
 	        .attr("class", "bar")
 	        .attr("height", function(d) { return height - yScale(d.value);})
-	        .attr("width", xScale.rangeBand())
+	        .attr("width", xScale.rangeBand() - barPadding)
 	        .attr("x", function(d, i) { return xScale(i); })
-	        .attr("y", function(d) { return yScale(d.value);});
-	        	// .on("mouseover", tooltip.show)
-	        	// .on("mouseout", tooltip.hide);
-};	        	
+	        .attr("y", function(d) { return yScale(d.value);})
+	        .style("fill", "steelblue")
+	        .on("mouseover", hover.show)
+			.on("mouseout", hover.hide);
 
-// function remove(){
-// 	d3.select("svg").select("g").remove()
-// }
+	// // title barchart
+	g.append("text")
+		.attr("class", "text")
+    	.attr("x", 300)
+    	.attr("y", 50)
+		.style("text-anchor", "end")
+    	.text("Details about the labourforce in " + place)
+		
+};	        
+
+// remove barchart
+function remove(){
+	d3.select("#chart").remove()
+}

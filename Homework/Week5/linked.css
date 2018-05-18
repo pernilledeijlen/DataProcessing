@@ -2,11 +2,11 @@
 10747354
 style for linked views*/
 
-/*body
+body
 {
   font: "Times New Roman";
 }
-*/
+
 .text
 {
     font: "Times New Roman";
@@ -20,6 +20,6 @@ style for linked views*/
     shape-rendering: crispEdges;
 }
 
-.hoverinfo {
-	fill: grey;
+.bar:hover {
+	fill: black;
 }

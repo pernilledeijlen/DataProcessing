@@ -8,6 +8,7 @@ Linked Views -->
   	<title> Linked Views</title>
     <link rel="stylesheet" type="text/css" href="linked.css">
     <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
     <script src="https://d3js.org/queue.v1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
     <script src="datamaps.world.min.js"></script>   
@@ -17,7 +18,19 @@ Linked Views -->
   	<h3> Pernille Deijlen</h3>
   	<h3> 10747354</h3>
   	<h1> Europe and its labour force</h1>
-  	<p> Below a map of Europe. The colors show the size of the labour force for each country in 2014, the darker the bigger. When you hover over the map you will see the exact amounts and when you click on a country it shows the labour force in more detail. Grey countries on the map unfortunately don't have any data available. Source: OECD.</p>
+  	<p> Below a map of Europe. The colors show the size of the labour force for each country in 2014, the darker the bigger. When you hover over the map you will see the exact amounts and when you click on a country it shows the labour force in more detail. Grey countries on the map unfortunately don't have any data available. Source: OECD.<br>
+    The values on the x-axis:<br>
+      em: Employment<br>
+      em-a: Employment in Argiculture<br>
+      em-f: Females in Employment<br>
+      em-i: Employment in Industry<br>
+      em-m: Males in Employment<br>
+      em-s: Employment in Services<br>
+      lf-f: Female Labourforce<br>
+      lf-m: Male Labourforce<br>
+      s-em: Self Employment<br>
+      unem: Unemployment<br>
+    </p>
     <div id="container" style="position: relative; width: 600px; height: 400px;"></div>
     <script src="linked.js"></script>    
   </body>
