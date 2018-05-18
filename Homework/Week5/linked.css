@@ -6,7 +6,7 @@ style for linked views*/
 {
   font: "Times New Roman";
 }
-
+*/
 .text
 {
     font: "Times New Roman";
@@ -18,13 +18,7 @@ style for linked views*/
     fill: none;
     stroke: black;
     shape-rendering: crispEdges;
-}*/
-
-/*path {
-  stroke: white;
-  stroke-width: 0.3px;
-  fill: grey;
-}*/
+}
 
 .hoverinfo {
 	fill: grey;

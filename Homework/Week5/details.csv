@@ -1,0 +1,251 @@
+iso,country,subject,value
+AUT,Austria,em,4112675
+AUT,Austria,em-a,198925
+AUT,Austria,em-f,1937475
+AUT,Austria,em-i,1059075
+AUT,Austria,em-m,2175200
+AUT,Austria,em-s,2854675
+AUT,Austria,lf-f,2047700
+AUT,Austria,lf-m,2309825
+AUT,Austria,s-em,546500
+AUT,Austria,unem,244900
+BEL,Belgium,em,4543550
+BEL,Belgium,em-a,55350
+BEL,Belgium,em-f,2108225
+BEL,Belgium,em-i,972575
+BEL,Belgium,em-m,2435300
+BEL,Belgium,em-s,3515625
+BEL,Belgium,lf-f,2290100
+BEL,Belgium,lf-m,2676750
+BEL,Belgium,s-em,663950
+BEL,Belgium,unem,423325
+CHE,Switzerland,em,4469000
+CHE,Switzerland,em-a,154825
+CHE,Switzerland,em-f,2071500
+CHE,Switzerland,em-i,921300
+CHE,Switzerland,em-m,2397525
+CHE,Switzerland,em-s,3392875
+CHE,Switzerland,lf-f,2180175
+CHE,Switzerland,lf-m,2515425
+CHE,Switzerland,s-em,682325
+CHE,Switzerland,unem,226625
+CZE,Czech Republic,em,4974325
+CZE,Czech Republic,em-a,136700
+CZE,Czech Republic,em-f,2157325
+CZE,Czech Republic,em-i,1892175
+CZE,Czech Republic,em-m,2816950
+CZE,Czech Republic,em-s,2945450
+CZE,Czech Republic,lf-f,2329600
+CZE,Czech Republic,lf-m,2968275
+CZE,Czech Republic,s-em,895000
+CZE,Czech Republic,unem,323600
+DEU,Germany,em,39871320
+DEU,Germany,em-a,569550
+DEU,Germany,em-f,18569970
+DEU,Germany,em-i,11184450
+DEU,Germany,em-m,21301350
+DEU,Germany,em-s,28117320
+DEU,Germany,lf-f,19471650
+DEU,Germany,lf-m,22489600
+DEU,Germany,s-em,4368275
+DEU,Germany,unem,2089900
+DNK,Denmark,em,2714125
+DNK,Denmark,em-a,67225
+DNK,Denmark,em-f,1281550
+DNK,Denmark,em-i,521300
+DNK,Denmark,em-m,1432550
+DNK,Denmark,em-s,2125600
+DNK,Denmark,lf-f,1375350
+DNK,Denmark,lf-m,1530200
+DNK,Denmark,s-em,240925
+DNK,Denmark,unem,191450
+ESP,Spain,em,17344180
+ESP,Spain,em-a,735850
+ESP,Spain,em-f,7901500
+ESP,Spain,em-i,3373425
+ESP,Spain,em-m,9442700
+ESP,Spain,em-s,13234900
+ESP,Spain,lf-f,10595450
+ESP,Spain,lf-m,12359150
+ESP,Spain,s-em,3051050
+ESP,Spain,unem,5610400
+EST,Estonia,em,624825
+EST,Estonia,em-a,24100
+EST,Estonia,em-f,304775
+EST,Estonia,em-i,0
+EST,Estonia,em-m,320050
+EST,Estonia,em-s,0
+EST,Estonia,lf-f,327050
+EST,Estonia,lf-m,347350
+EST,Estonia,s-em,0
+EST,Estonia,unem,49575
+FIN,Finland,em,2447250
+FIN,Finland,em-a,103675
+FIN,Finland,em-f,1193250
+FIN,Finland,em-i,533350
+FIN,Finland,em-m,1253950
+FIN,Finland,em-s,1810225
+FIN,Finland,lf-f,1296350
+FIN,Finland,lf-m,1382975
+FIN,Finland,s-em,342625
+FIN,Finland,unem,232100
+FRA,France,em,26396350
+FRA,France,em-a,743600
+FRA,France,em-f,12712830
+FRA,France,em-i,5375075
+FRA,France,em-m,13683550
+FRA,France,em-s,20277680
+FRA,France,lf-f,14130950
+FRA,France,lf-m,15298030
+FRA,France,s-em,3061125
+FRA,France,unem,3032575
+GBR,United Kingdom,em,30671280
+GBR,United Kingdom,em-a,381625
+GBR,United Kingdom,em-f,14346450
+GBR,United Kingdom,em-i,5767250
+GBR,United Kingdom,em-m,16324780
+GBR,United Kingdom,em-s,24522400
+GBR,United Kingdom,lf-f,15233220
+GBR,United Kingdom,lf-m,17434150
+GBR,United Kingdom,s-em,4669675
+GBR,United Kingdom,unem,1996125
+GRC,Greece,em,3536250
+GRC,Greece,em-a,479875
+GRC,Greece,em-f,1480200
+GRC,Greece,em-i,529650
+GRC,Greece,em-m,2056050
+GRC,Greece,em-s,2526725
+GRC,Greece,lf-f,2119625
+GRC,Greece,lf-m,2691025
+GRC,Greece,s-em,1271875
+GRC,Greece,unem,1274425
+HUN,Hungary,em,4100825
+HUN,Hungary,em-a,190975
+HUN,Hungary,em-f,1880375
+HUN,Hungary,em-i,1246100
+HUN,Hungary,em-m,2220500
+HUN,Hungary,em-s,2663750
+HUN,Hungary,lf-f,2041925
+HUN,Hungary,lf-m,2402225
+HUN,Hungary,s-em,448800
+HUN,Hungary,unem,343350
+IRL,Ireland,em,1913900
+IRL,Ireland,em-a,108975
+IRL,Ireland,em-f,874800
+IRL,Ireland,em-i,348400
+IRL,Ireland,em-m,1039125
+IRL,Ireland,em-s,1456525
+IRL,Ireland,lf-f,965050
+IRL,Ireland,lf-m,1191800
+IRL,Ireland,s-em,331925
+IRL,Ireland,unem,242925
+ISL,Iceland,em,177625
+ISL,Iceland,em-a,8050
+ISL,Iceland,em-f,84900
+ISL,Iceland,em-i,0
+ISL,Iceland,em-m,92700
+ISL,Iceland,em-s,0
+ISL,Iceland,lf-f,89175
+ISL,Iceland,lf-m,97600
+ISL,Iceland,s-em,0
+ISL,Iceland,unem,9125
+ITA,Italy,em,22278930
+ITA,Italy,em-a,811750
+ITA,Italy,em-f,9333650
+ITA,Italy,em-i,5993425
+ITA,Italy,em-m,12945280
+ITA,Italy,em-s,15473750
+ITA,Italy,lf-f,10827670
+ITA,Italy,lf-m,14687280
+ITA,Italy,s-em,5498725
+ITA,Italy,unem,3236000
+LUX,Luxembourg,em,245625
+LUX,Luxembourg,em-a,3450
+LUX,Luxembourg,em-f,109625
+LUX,Luxembourg,em-i,24400
+LUX,Luxembourg,em-m,136000
+LUX,Luxembourg,em-s,217775
+LUX,Luxembourg,lf-f,116350
+LUX,Luxembourg,lf-m,144550
+LUX,Luxembourg,s-em,0
+LUX,Luxembourg,unem,15275
+NLD,Netherlands,em,8236075
+NLD,Netherlands,em-a,174025
+NLD,Netherlands,em-f,3776375
+NLD,Netherlands,em-i,1232025
+NLD,Netherlands,em-m,4459675
+NLD,Netherlands,em-s,6830025
+NLD,Netherlands,lf-f,4093450
+NLD,Netherlands,lf-m,4802325
+NLD,Netherlands,s-em,1368450
+NLD,Netherlands,unem,659700
+NOR,Norway,em,2626600
+NOR,Norway,em-a,58925
+NOR,Norway,em-f,1242950
+NOR,Norway,em-i,535225
+NOR,Norway,em-m,1383650
+NOR,Norway,em-s,2032450
+NOR,Norway,lf-f,1284525
+NOR,Norway,lf-m,1436900
+NOR,Norway,s-em,189375
+NOR,Norway,unem,94825
+POL,Poland,em,15861530
+POL,Poland,em-a,1819450
+POL,Poland,em-f,7083775
+POL,Poland,em-i,4836125
+POL,Poland,em-m,8777725
+POL,Poland,em-s,9205950
+POL,Poland,lf-f,7835350
+POL,Poland,lf-m,9592900
+POL,Poland,s-em,3386925
+POL,Poland,unem,1566775
+PRT,Portugal,em,4499550
+PRT,Portugal,em-a,389125
+PRT,Portugal,em-f,2180025
+PRT,Portugal,em-i,1073550
+PRT,Portugal,em-m,2319475
+PRT,Portugal,em-s,3036875
+PRT,Portugal,lf-f,2544550
+PRT,Portugal,lf-m,2681025
+PRT,Portugal,s-em,888475
+PRT,Portugal,unem,726050
+SVK,Slovak Republic,em,2363025
+SVK,Slovak Republic,em-a,82650
+SVK,Slovak Republic,em-f,1046700
+SVK,Slovak Republic,em-i,837425
+SVK,Slovak Republic,em-m,1316375
+SVK,Slovak Republic,em-s,1442950
+SVK,Slovak Republic,lf-f,1211900
+SVK,Slovak Republic,lf-m,1510000
+SVK,Slovak Republic,s-em,0
+SVK,Slovak Republic,unem,358825
+SVN,Slovenia,em,916700
+SVN,Slovenia,em-a,87725
+SVN,Slovenia,em-f,417475
+SVN,Slovenia,em-i,281900
+SVN,Slovenia,em-m,499200
+SVN,Slovenia,em-s,547075
+SVN,Slovenia,lf-f,466700
+SVN,Slovenia,lf-m,548125
+SVN,Slovenia,s-em,170225
+SVN,Slovenia,unem,98125
+SWE,Sweden,em,4772125
+SWE,Sweden,em-a,93700
+SWE,Sweden,em-f,2269725
+SWE,Sweden,em-i,882850
+SWE,Sweden,em-m,2502400
+SWE,Sweden,em-s,3795575
+SWE,Sweden,lf-f,2458900
+SWE,Sweden,lf-m,2725550
+SWE,Sweden,s-em,493075
+SWE,Sweden,unem,412350
+TUR,Turkey,em,25930720
+TUR,Turkey,em-a,5467525
+TUR,Turkey,em-f,7689700
+TUR,Turkey,em-i,7223625
+TUR,Turkey,em-m,18241030
+TUR,Turkey,em-s,13239580
+TUR,Turkey,lf-f,8721900
+TUR,Turkey,lf-m,20051600
+TUR,Turkey,s-em,8800725
+TUR,Turkey,unem,2842750
