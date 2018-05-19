@@ -121,6 +121,8 @@ function barchart(place, infoCountry) {
 	var height = totalHeight - margin.top - margin.bottom;
 	var barPadding = 2
 
+	var categories= ['Unemployed', 'Self employed', 'Labourforce male', 'Labourforce female', 'Employed in Services','Employed male','Employed in Industries','Employed female','Employed in Agriculture','Employed'];
+
 	var tooltip = d3.select("body").append("div").attr("class", "toolTip");
 	var body = d3.select("body");
 
@@ -139,21 +141,22 @@ function barchart(place, infoCountry) {
 			var data = infoCountry[i];
 		}
 	};
- 	
-	// scaling the y-axis
-	var yScale = d3.scale.linear()
-		.domain([0, 40000000])
-	    .range([height, margin.top]);
 
 	// scaling the x-axis
-	var xScale = d3.scale.ordinal()
+	var xScale = d3.scale.linear()
+		.domain([0, 40000000])
+	    .range([0, width]);
+
+	// scaling the y-axis
+	var yScale = d3.scale.ordinal()
         .domain(d3.range(data.length))
-        .rangeRoundBands([0, width]);
+        .rangeRoundBands([height, margin.top]);
 
 	// creating the y-axis
 	var yAxis = d3.svg.axis()
 		.scale(yScale)
-		.orient("left");
+		.orient("left")
+		.tickFormat(function(d, i) { return categories[9 - i];});
 
 	g.append("g")
 	    .attr("class", "axis")
@@ -164,21 +167,12 @@ function barchart(place, infoCountry) {
 	var xAxis = d3.svg.axis()
 		.scale(xScale)
 		.orient("bottom")
-		.tickFormat(function(d) { return data[d]["subject"];});
-
+		.tickFormat(function(d) { return d / 1000000;});
+		
 	g.append("g")
 	    .attr("class", "axis")
 	    .attr("transform", "translate(" + (-margin.right) + "," + (height - margin.right) + ")") 
 	    .call(xAxis);
-
-	// y-axis label
-	g.append("text")
-   		.attr("class", "text")
-   		.attr("transform", "rotate(-90)")
-    	.attr("x", 0)
-    	.attr("y", -margin.right - 100)
-    	.style("text-anchor", "end")
-    	.text("amount");
 
 	// x-axis label
 	g.append("text")
@@ -186,15 +180,16 @@ function barchart(place, infoCountry) {
 	    	.attr("x", margin.left + 40)
 	    	.attr("y", height + margin.top)
 	    	.style("text-anchor", "end")
-	    	.text("info on the labour force");
+	    	.text("Amount in Millions");
 
 	// creating hover tooltip
 	var hover = d3.tip()
 	.attr("class", "d3-tip")
-	.offset([-10, 0])
-	.html(function(d) { return "<strong>" + (d.subject) + ": " + "</strong> <span style='color:black'>" + (d.value) + "</span>";});
+	.offset([20, 250])
+	.html(function(d) { return "<span style='color:black'>" + (d.value) + "</span>";});
 
-	svg.call(hover)
+	svg.call(hover);
+	
 	// creating bars
 	svg.selectAll("rect")
 	    .data(data)
@@ -202,10 +197,10 @@ function barchart(place, infoCountry) {
 	    .append("rect")
 	    	.attr("transform", "translate(" + (height - margin.left + 40) + ")")
 	        .attr("class", "bar")
-	        .attr("height", function(d) { return height - yScale(d.value);})
-	        .attr("width", xScale.rangeBand() - barPadding)
-	        .attr("x", function(d, i) { return xScale(i); })
-	        .attr("y", function(d) { return yScale(d.value);})
+	        .attr("height", yScale.rangeBand() - barPadding)
+	        .attr("width", function(d) { return xScale(d.value);})
+	        .attr("x", function(d, i) { return xScale(i);})
+	        .attr("y", function(d, i) { return yScale(i);})
 	        .style("fill", "steelblue")
 	        .on("mouseover", hover.show)
 			.on("mouseout", hover.hide);
@@ -214,13 +209,12 @@ function barchart(place, infoCountry) {
 	g.append("text")
 		.attr("class", "text")
     	.attr("x", 300)
-    	.attr("y", 50)
+    	.attr("y", 20)
 		.style("text-anchor", "end")
     	.text("Details about the labourforce in " + place)
-		
 };	        
 
 // remove barchart
 function remove(){
 	d3.select("#chart").remove()
-}
+};
